@@ -526,7 +526,7 @@ class RealEstateDemo(BaseDemo):
 
 def run_real_estate_demo():
     """Run the real estate demo."""
-    print("🏠 Starting Enhanced Real Estate Demo")
+    print("Starting Enhanced Real Estate Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -537,20 +537,20 @@ def run_real_estate_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Real Estate Search Summary:")
+            print("\nReal Estate Search Summary:")
             
             # Site and location info
             if "target_site" in result.data_extracted:
                 site = result.data_extracted["target_site"]
-                print(f"   🌐 Site used: {site.get('name', 'Unknown')}")
+                print(f"   Site used: {site.get('name', 'Unknown')}")
                 locations = site.get("search_locations", [])
                 if locations:
-                    print(f"   📍 Available locations: {', '.join(locations[:3])}")
+                    print(f"   Available locations: {', '.join(locations[:3])}")
             
             # Location setup
             if "location_result" in result.data_extracted:
@@ -558,7 +558,7 @@ def run_real_estate_demo():
                 if not location.get("skipped"):
                     selected = location.get("selected_location", "Unknown")
                     success = location.get("location_set_successfully", False)
-                    print(f"   🎯 Search location: {selected} ({'✅ Set' if success else '❌ Failed'})")
+                    print(f"   Search location: {selected} ({'Set' if success else 'Failed'})")
             
             # Filter results
             if "filter_result" in result.data_extracted:
@@ -566,7 +566,7 @@ def run_real_estate_demo():
                 if not filters.get("skipped"):
                     successful = filters.get("successful_count", 0)
                     total = filters.get("total_attempted", 0)
-                    print(f"   🎛️  Property filters: {successful}/{total} applied")
+                    print(f"   Property filters: {successful}/{total} applied")
             
             # Analysis results
             if "analysis_result" in result.data_extracted:
@@ -574,8 +574,8 @@ def run_real_estate_demo():
                 if not analysis.get("failed"):
                     analyzed = len(analysis.get("properties_analyzed", []))
                     available = analysis.get("properties_available", False)
-                    print(f"   🔍 Properties analyzed: {analyzed}")
-                    print(f"   ✅ Properties available: {available}")
+                    print(f"   Properties analyzed: {analyzed}")
+                    print(f"   Properties available: {available}")
             
             # Transportation info
             if "transport_result" in result.data_extracted:
@@ -583,25 +583,25 @@ def run_real_estate_demo():
                 if not transport.get("skipped"):
                     available = transport.get("available_info_count", 0)
                     total = transport.get("total_checks", 0)
-                    print(f"   🚌 Transportation info: {available}/{total} types available")
+                    print(f"   Transportation info: {available}/{total} types available")
             
             # Extraction results
             if "extraction_result" in result.data_extracted:
                 extraction = result.data_extracted["extraction_result"]
                 success = extraction.get("extraction_successful", False)
                 method = extraction.get("extraction_method", "unknown")
-                print(f"   📄 Data extraction: {'✅ Success' if success else '❌ Failed'} ({method})")
+                print(f"   Data extraction: {'Success' if success else 'Failed'} ({method})")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -615,7 +615,7 @@ def main():
     result = run_real_estate_demo()
     
     if result.success:
-        print("\n🎉 Real estate demo completed successfully!")
+        print("\nReal estate demo completed successfully!")
         print("This demo showcased:")
         print("  • Geographic-aware real estate site selection")
         print("  • Location-based property searching")
@@ -623,12 +623,12 @@ def main():
         print("  • Transportation and amenity analysis")
         print("  • Detailed property data extraction")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in real estate operations")
         print("  • Graceful degradation when sites have restrictions")
         print("  • Adaptive strategies for different regional sites")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Implement property data validation and normalization")
     print("  • Use structured schemas for consistent data extraction")
     print("  • Consider market trend analysis and price predictions")

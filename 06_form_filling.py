@@ -527,7 +527,7 @@ class FormFillingDemo(BaseDemo):
 
 def run_form_filling_demo():
     """Run the form filling demo."""
-    print("📝 Starting Enhanced Form Filling Demo")
+    print("Starting Enhanced Form Filling Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -538,17 +538,17 @@ def run_form_filling_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Form Filling Summary:")
+            print("\nForm Filling Summary:")
             
             # Form analysis
             if "total_fields_detected" in result.data_extracted:
                 fields_count = result.data_extracted["total_fields_detected"]
-                print(f"   🔍 Form fields detected: {fields_count}")
+                print(f"   Form fields detected: {fields_count}")
             
             # Form filling results
             if "form_filling" in result.data_extracted:
@@ -556,7 +556,7 @@ def run_form_filling_demo():
                 if not filling.get("skipped"):
                     successful = filling.get("successful_count", 0)
                     total = filling.get("total_fields", 0)
-                    print(f"   ✏️  Fields filled: {successful}/{total}")
+                    print(f"   Fields filled: {successful}/{total}")
             
             # Validation results
             if "form_validation" in result.data_extracted:
@@ -564,25 +564,25 @@ def run_form_filling_demo():
                 if not validation.get("failed"):
                     successful = validation.get("successful_count", 0)
                     total = validation.get("total_checks", 0)
-                    print(f"   ✅ Validation checks: {successful}/{total} passed")
+                    print(f"   Validation checks: {successful}/{total} passed")
             
             # Submission status
             if "form_submission" in result.data_extracted:
                 submission = result.data_extracted["form_submission"]
                 button_found = submission.get("submit_button_found", False)
-                print(f"   🚀 Submit button found: {button_found}")
-                print(f"   🛡️  Demo mode: Form not actually submitted")
+                print(f"   Submit button found: {button_found}")
+                print(f"   Demo mode: Form not actually submitted")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -596,7 +596,7 @@ def main():
     result = run_form_filling_demo()
     
     if result.success:
-        print("\n🎉 Form filling demo completed successfully!")
+        print("\nForm filling demo completed successfully!")
         print("This demo showcased:")
         print("  • Multi-strategy form field detection")
         print("  • Adaptive form filling with fallback methods")
@@ -604,12 +604,12 @@ def main():
         print("  • Safe demo mode without actual submission")
         print("  • Comprehensive logging of form interactions")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in form operations")
         print("  • Graceful degradation when fields can't be detected")
         print("  • Safe handling of form submission scenarios")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Always validate form data before submission")
     print("  • Implement proper error handling for form validation")
     print("  • Use secure methods for handling sensitive form data")

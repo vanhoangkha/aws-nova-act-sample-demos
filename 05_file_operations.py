@@ -142,9 +142,9 @@ class FileOperationsDemo(BaseDemo):
                         "size": stat.st_size,
                         "created": True
                     })
-                    self.logger.info(f"✅ Created {os.path.basename(file_path)} ({stat.st_size} bytes)")
+                    self.logger.info(f"Created {os.path.basename(file_path)} ({stat.st_size} bytes)")
                 else:
-                    self.logger.error(f"❌ Failed to create {file_path}")
+                    self.logger.error(f"Failed to create {file_path}")
             
             self.logger.log_step(1, "Test Files Creation", "completed", f"Created {len(file_info)} files")
             self.logger.log_data_extraction("test_files", {"files": file_info}, "file_creation")
@@ -478,13 +478,13 @@ class FileOperationsDemo(BaseDemo):
                 if os.path.exists(file_path):
                     os.remove(file_path)
                     cleanup_results["files_removed"].append(os.path.basename(file_path))
-                    self.logger.info(f"✅ Removed {os.path.basename(file_path)}")
+                    self.logger.info(f"Removed {os.path.basename(file_path)}")
             except Exception as e:
                 cleanup_results["cleanup_errors"].append({
                     "file": os.path.basename(file_path),
                     "error": str(e)
                 })
-                self.logger.error(f"❌ Failed to remove {file_path}: {e}")
+                self.logger.error(f"Failed to remove {file_path}: {e}")
         
         # Clean up empty directories (optional)
         try:
@@ -505,7 +505,7 @@ class FileOperationsDemo(BaseDemo):
 
 def run_file_operations_demo():
     """Run the file operations demo."""
-    print("📁 Starting Enhanced File Operations Demo")
+    print("Starting Enhanced File Operations Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -516,17 +516,17 @@ def run_file_operations_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 File Operations Summary:")
+            print("\nFile Operations Summary:")
             
             # Test files info
             if "file_info" in result.data_extracted:
                 files = result.data_extracted["file_info"]
-                print(f"   📄 Test files created: {len(files)}")
+                print(f"   Test files created: {len(files)}")
                 for file_info in files:
                     print(f"      • {file_info['name']} ({file_info['size']} bytes)")
             
@@ -536,31 +536,31 @@ def run_file_operations_demo():
                 if not upload.get("skipped"):
                     successful = upload.get("successful_count", 0)
                     total = len(upload.get("results", []))
-                    print(f"   ⬆️  Upload tests: {successful}/{total} successful")
+                    print(f"   Upload tests: {successful}/{total} successful")
             
             # Download results
             if "download_test" in result.data_extracted:
                 download = result.data_extracted["download_test"]
                 if not download.get("skipped"):
                     successful = download.get("successful_count", 0)
-                    print(f"   ⬇️  Download tests: {successful} successful")
+                    print(f"   Download tests: {successful} successful")
             
             # Cleanup results
             if "cleanup" in result.data_extracted:
                 cleanup = result.data_extracted["cleanup"]
                 removed = len(cleanup.get("files_removed", []))
-                print(f"   🗑️  Files cleaned up: {removed}")
+                print(f"   Files cleaned up: {removed}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -574,7 +574,7 @@ def main():
     result = run_file_operations_demo()
     
     if result.success:
-        print("\n🎉 File operations demo completed successfully!")
+        print("\nFile operations demo completed successfully!")
         print("This demo showcased:")
         print("  • Test file creation and validation")
         print("  • File upload with multiple strategies")
@@ -582,12 +582,12 @@ def main():
         print("  • File integrity checking")
         print("  • Automatic cleanup and resource management")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in file operations")
         print("  • Safe file handling with validation")
         print("  • Graceful degradation when operations fail")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Always validate file types and sizes before upload")
     print("  • Implement virus scanning for uploaded files")
     print("  • Use secure file storage with proper permissions")

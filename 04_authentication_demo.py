@@ -353,7 +353,7 @@ class AuthenticationDemo(BaseDemo):
 
 def run_authentication_demo():
     """Run the authentication demo."""
-    print("🔐 Starting Enhanced Authentication Demo")
+    print("Starting Enhanced Authentication Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -364,41 +364,41 @@ def run_authentication_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Authentication Summary:")
+            print("\nAuthentication Summary:")
             
             # Target site info
             if "target_site" in result.data_extracted:
                 site = result.data_extracted["target_site"]
-                print(f"   🌐 Target site: {site.get('name', 'Unknown')}")
-                print(f"   🔗 URL: {site.get('url', 'Unknown')}")
+                print(f"   Target site: {site.get('name', 'Unknown')}")
+                print(f"   URL: {site.get('url', 'Unknown')}")
             
             # Authentication status
             if "authentication_result" in result.data_extracted:
                 auth = result.data_extracted["authentication_result"]
-                print(f"   🔑 Authentication: {auth.get('status', 'Unknown')}")
-                print(f"   📝 Method: {auth.get('method', 'Unknown')}")
+                print(f"   Authentication: {auth.get('status', 'Unknown')}")
+                print(f"   Method: {auth.get('method', 'Unknown')}")
             
             # Session persistence
             if "persistence_test" in result.data_extracted:
                 persist = result.data_extracted["persistence_test"]
-                print(f"   💾 Session directory exists: {persist.get('session_dir_exists', False)}")
-                print(f"   📁 Session files: {persist.get('session_files_count', 0)}")
+                print(f"   Session directory exists: {persist.get('session_dir_exists', False)}")
+                print(f"   Session files: {persist.get('session_files_count', 0)}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -408,7 +408,7 @@ def main():
     print("Nova Act Enhanced Authentication Demo")
     print("=" * 50)
     
-    print("🔒 Security Note:")
+    print("Security Note:")
     print("This demo shows authentication concepts without using real credentials.")
     print("In production, use secure credential management practices.")
     print()
@@ -417,7 +417,7 @@ def main():
     result = run_authentication_demo()
     
     if result.success:
-        print("\n🎉 Authentication demo completed successfully!")
+        print("\nAuthentication demo completed successfully!")
         print("This demo showcased:")
         print("  • Session persistence with user_data_dir")
         print("  • Authentication state checking")
@@ -425,12 +425,12 @@ def main():
         print("  • Session directory management")
         print("  • Multi-session testing")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in authentication flows")
         print("  • Safe handling of authentication failures")
         print("  • Session management best practices")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Never hardcode credentials in scripts")
     print("  • Use environment variables or secure vaults")
     print("  • Implement proper session timeout handling")

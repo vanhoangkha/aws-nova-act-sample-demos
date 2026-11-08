@@ -34,7 +34,7 @@ class DemoSuiteOrchestrator:
         # Check API key
         if not os.getenv('NOVA_ACT_API_KEY'):
             self.logger.error("NOVA_ACT_API_KEY environment variable not set")
-            print("❌ Please set NOVA_ACT_API_KEY environment variable")
+            print("Please set NOVA_ACT_API_KEY environment variable")
             print("   export NOVA_ACT_API_KEY='your_api_key'")
             return False
         
@@ -301,7 +301,7 @@ ENVIRONMENT INFORMATION
         report += f"VPN Detected: {env_info.has_vpn}\n"
         
         if successful_demos:
-            report += f"\n✅ SUCCESSFUL DEMOS ({len(successful_demos)})\n"
+            report += f"\nSUCCESSFUL DEMOS ({len(successful_demos)})\n"
             report += "="*40 + "\n"
             for demo in successful_demos:
                 report += f"• {demo.demo_name}\n"
@@ -312,7 +312,7 @@ ENVIRONMENT INFORMATION
                 report += "\n"
         
         if failed_demos:
-            report += f"\n❌ FAILED DEMOS ({len(failed_demos)})\n"
+            report += f"\nFAILED DEMOS ({len(failed_demos)})\n"
             report += "="*40 + "\n"
             for demo in failed_demos:
                 report += f"• {demo.demo_name}\n"
@@ -332,12 +332,12 @@ ENVIRONMENT INFORMATION
         report += "="*40 + "\n"
         
         if len(successful_demos) == len(self.results):
-            report += "🎉 All demos completed successfully!\n"
+            report += "All demos completed successfully!\n"
             report += "• Your environment is well-configured for Nova Act\n"
             report += "• Consider exploring advanced features and customizations\n"
             report += "• Try running demos with different configurations\n"
         else:
-            report += "⚠️ Some demos encountered issues:\n"
+            report += "Some demos encountered issues:\n"
             
             # Analyze common failure patterns
             error_types = {}
@@ -394,10 +394,10 @@ def main():
     # Exit with appropriate code
     successful_count = sum(1 for r in results if r.success)
     if successful_count == len(results):
-        print("\n🎉 All demos completed successfully!")
+        print("\nAll demos completed successfully!")
         sys.exit(0)
     else:
-        print(f"\n⚠️ {len(results) - successful_count} demo(s) encountered issues.")
+        print(f"\n{len(results) - successful_count} demo(s) encountered issues.")
         print("This is normal and expected - the framework handled errors gracefully.")
         sys.exit(0)  # Don't exit with error code as this is expected behavior
 
