@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-📚 Sample 02: Extract Book List with Pydantic
+Sample 02: Extract Book List with Pydantic
 Demo structured information extraction from Wikipedia
 """
 
@@ -25,7 +25,7 @@ def get_books(year: int) -> BookList | None:
             starting_page=f"https://en.wikipedia.org/wiki/List_of_The_New_York_Times_number-one_books_of_{year}#Fiction",
             headless=True
         ) as nova:
-            print(f"📖 Extracting books from year {year}...")
+            print(f"Extracting books from year {year}...")
             
             # Use schema for structured data extraction
             result = nova.act(
@@ -34,7 +34,7 @@ def get_books(year: int) -> BookList | None:
             )
             
             if not result.matches_schema:
-                print(f"❌ Data doesn't match schema for year {year}")
+                print(f"Data doesn't match schema for year {year}")
                 return None
             
             # Parse JSON into Pydantic model
@@ -42,7 +42,7 @@ def get_books(year: int) -> BookList | None:
             return book_list
             
     except Exception as e:
-        print(f"❌ Error extracting year {year}: {e}")
+        print(f"Error extracting year {year}: {e}")
         return None
 
 def main():
@@ -51,25 +51,25 @@ def main():
     # Check API key
     api_key = os.getenv('NOVA_ACT_API_KEY')
     if not api_key:
-        print("❌ Please set NOVA_ACT_API_KEY")
+        print("Please set NOVA_ACT_API_KEY")
         return
     
-    print("📚 Sample 02: Extract Book List")
+    print("Sample 02: Extract Book List")
     print("=" * 40)
-    print("🏗️ Using Pydantic schema for structured data")
+    print("Using Pydantic schema for structured data")
     
     # Test with one year
     year = 2023
     book_list = get_books(year)
     
     if book_list:
-        print(f"\n✅ Found {len(book_list.books)} books from {year}:")
+        print(f"\nFound {len(book_list.books)} books from {year}:")
         for i, book in enumerate(book_list.books, 1):
             print(f"   {i}. {book.title} - {book.author}")
     else:
-        print(f"❌ Could not get book list for year {year}")
+        print(f"Could not get book list for year {year}")
     
-    print("\n💡 This example demonstrates:")
+    print("\nThis example demonstrates:")
     print("   • Using Pydantic BaseModel")
     print("   • Schema validation with matches_schema")
     print("   • Structured data extraction")

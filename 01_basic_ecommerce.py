@@ -272,7 +272,7 @@ class BasicEcommerceDemo(BaseDemo):
 
 def run_basic_demo():
     """Run the basic e-commerce demo."""
-    print("🛒 Starting Enhanced Basic E-commerce Demo")
+    print("Starting Enhanced Basic E-commerce Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -283,16 +283,16 @@ def run_basic_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("📋 Data extracted:")
+            print("Data extracted:")
             for key, value in result.data_extracted.items():
                 print(f"   {key}: {value}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
             if error.troubleshooting_tips:
@@ -301,11 +301,11 @@ def run_basic_demo():
                     print(f"       - {tip}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -324,14 +324,14 @@ def main():
         pass
     
     if result.success:
-        print("\n🎉 E-commerce demo completed successfully!")
+        print("\nE-commerce demo completed successfully!")
         print("This demo showcased:")
         print("  • Geographic-aware site selection")
         print("  • Robust error handling and recovery")
         print("  • Structured logging and reporting")
         print("  • Fallback strategies for reliability")
     else:
-        print("\n⚠️ Demo encountered some issues, but this is expected.")
+        print("\nDemo encountered some issues, but this is expected.")
         print("The framework handled errors gracefully and provided useful feedback.")
 
 

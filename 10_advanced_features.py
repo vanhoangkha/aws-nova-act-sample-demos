@@ -92,7 +92,7 @@ class AdvancedFeaturesDemo(BaseDemo):
             if not self.config_manager.validate_site_access(demo_site):
                 demo_site = self.get_fallback_sites()[0]
             
-            print("🎥 Starting video recording demo...")
+            print("Starting video recording demo...")
             
             with NovaAct(
                 starting_page=demo_site,
@@ -134,10 +134,10 @@ class AdvancedFeaturesDemo(BaseDemo):
                 "metadata": {"project": "nova-act-demo", "environment": "development"}
             }
             
-            print("☁️ Simulating S3 integration...")
-            print(f"   📦 Bucket: {s3_config['bucket_name']}")
-            print(f"   🌍 Region: {s3_config['region']}")
-            print(f"   📁 Prefix: {s3_config['prefix']}")
+            print("Simulating S3 integration...")
+            print(f"   Bucket: {s3_config['bucket_name']}")
+            print(f"   Region: {s3_config['region']}")
+            print(f"   Prefix: {s3_config['prefix']}")
             
             # Simulate session data upload
             session_files = [
@@ -156,7 +156,7 @@ class AdvancedFeaturesDemo(BaseDemo):
                     "size": f"{100 + len(file_name)}KB",  # Simulated size
                     "s3_key": f"{s3_config['prefix']}{file_name}"
                 })
-                print(f"   ✅ Uploaded: {file_name}")
+                print(f"   Uploaded: {file_name}")
             
             s3_data = {
                 "s3_config": s3_config,
@@ -177,7 +177,7 @@ class AdvancedFeaturesDemo(BaseDemo):
         self.logger.log_step(3, "Monitoring Demo", "starting")
         
         try:
-            print("📊 Demonstrating monitoring capabilities...")
+            print("Demonstrating monitoring capabilities...")
             
             # Simulate monitoring metrics
             metrics = {
@@ -214,17 +214,17 @@ class AdvancedFeaturesDemo(BaseDemo):
                     "message": f"Success rate ({metrics['success_rate']}%) below optimal"
                 })
             
-            print("   📈 Performance Metrics:")
+            print("   Performance Metrics:")
             for key, value in metrics.items():
                 print(f"      {key}: {value}")
             
-            print("   🏥 Health Checks:")
+            print("   Health Checks:")
             for check in health_checks:
                 status_icon = "✅" if check["status"] == "healthy" else "⚠️"
                 print(f"      {status_icon} {check['check']}: {check['status']}")
             
             if alerts:
-                print("   🚨 Active Alerts:")
+                print("   Active Alerts:")
                 for alert in alerts:
                     print(f"      {alert['severity'].upper()}: {alert['message']}")
             
@@ -247,7 +247,7 @@ class AdvancedFeaturesDemo(BaseDemo):
         self.logger.log_step(4, "Performance Demo", "starting")
         
         try:
-            print("⚡ Demonstrating performance optimization...")
+            print("Demonstrating performance optimization...")
             
             # Simulate performance optimizations
             optimizations = [
@@ -287,13 +287,13 @@ class AdvancedFeaturesDemo(BaseDemo):
                 "memory_improvement": "34% reduction"
             }
             
-            print("   🚀 Performance Optimizations:")
+            print("   Performance Optimizations:")
             for opt in optimizations:
-                status = "✅ Enabled" if opt["enabled"] else "❌ Disabled"
+                status = "Enabled" if opt["enabled"] else "Disabled"
                 print(f"      {opt['feature']}: {status}")
                 print(f"         Gain: {opt['performance_gain']}")
             
-            print("   📊 Performance Benchmarks:")
+            print("   Performance Benchmarks:")
             print(f"      Execution Time: {benchmarks['baseline_execution_time']} → {benchmarks['optimized_execution_time']} ({benchmarks['improvement']})")
             print(f"      Memory Usage: {benchmarks['memory_baseline']} → {benchmarks['memory_optimized']} ({benchmarks['memory_improvement']})")
             
@@ -315,7 +315,7 @@ class AdvancedFeaturesDemo(BaseDemo):
         self.logger.log_step(5, "Production Features", "starting")
         
         try:
-            print("🏭 Demonstrating production features...")
+            print("Demonstrating production features...")
             
             # Production feature checklist
             production_features = [
@@ -362,13 +362,13 @@ class AdvancedFeaturesDemo(BaseDemo):
                 {"item": "Disaster recovery plan", "status": "pending"}
             ]
             
-            print("   ✅ Production Features:")
+            print("   Production Features:")
             for feature in production_features:
-                status = "✅ Implemented" if feature["implemented"] else "❌ Missing"
+                status = "Implemented" if feature["implemented"] else "Missing"
                 print(f"      {feature['feature']}: {status}")
                 print(f"         {feature['description']}")
             
-            print("   📋 Deployment Checklist:")
+            print("   Deployment Checklist:")
             for item in deployment_checklist:
                 status_icon = "✅" if item["status"] == "complete" else "⏳"
                 print(f"      {status_icon} {item['item']}")
@@ -398,7 +398,7 @@ class AdvancedFeaturesDemo(BaseDemo):
         self.logger.log_step(6, "Advanced Configuration", "starting")
         
         try:
-            print("⚙️ Demonstrating advanced configuration...")
+            print("Demonstrating advanced configuration...")
             
             # Advanced configuration examples
             configurations = {
@@ -453,13 +453,13 @@ class AdvancedFeaturesDemo(BaseDemo):
                 }
             }
             
-            print("   🔧 Configuration Categories:")
+            print("   Configuration Categories:")
             for category, settings in configurations.items():
                 print(f"      {category}:")
                 for key, value in settings.items():
                     print(f"         {key}: {value}")
             
-            print("   🌍 Environment Configurations:")
+            print("   Environment Configurations:")
             for env, config in environments.items():
                 print(f"      {env.upper()}:")
                 for key, value in config.items():
@@ -483,7 +483,7 @@ class AdvancedFeaturesDemo(BaseDemo):
 
 def run_advanced_features_demo():
     """Run the advanced features demo."""
-    print("🚀 Starting Advanced Features Demo")
+    print("Starting Advanced Features Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -494,19 +494,19 @@ def run_advanced_features_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Advanced Features Summary:")
+            print("\nAdvanced Features Summary:")
             
             # Video recording
             if "video_result" in result.data_extracted:
                 video = result.data_extracted["video_result"]
                 if not video.get("failed"):
                     actions = video.get("actions_recorded", 0)
-                    print(f"   🎥 Video recording: ✅ {actions} actions recorded")
+                    print(f"   Video recording: {actions} actions recorded")
             
             # S3 integration
             if "s3_result" in result.data_extracted:
@@ -514,7 +514,7 @@ def run_advanced_features_demo():
                 if not s3.get("failed"):
                     files = s3.get("total_files", 0)
                     bucket = s3.get("s3_config", {}).get("bucket_name", "unknown")
-                    print(f"   ☁️  S3 integration: ✅ {files} files → {bucket}")
+                    print(f"   S3 integration: {files} files → {bucket}")
             
             # Monitoring
             if "monitoring_result" in result.data_extracted:
@@ -522,7 +522,7 @@ def run_advanced_features_demo():
                 if not monitoring.get("failed"):
                     alerts = len(monitoring.get("alerts", []))
                     health_checks = len(monitoring.get("health_checks", []))
-                    print(f"   📊 Monitoring: ✅ {health_checks} health checks, {alerts} alerts")
+                    print(f"   Monitoring: {health_checks} health checks, {alerts} alerts")
             
             # Performance
             if "performance_result" in result.data_extracted:
@@ -530,7 +530,7 @@ def run_advanced_features_demo():
                 if not performance.get("failed"):
                     optimizations = len(performance.get("optimizations", []))
                     improvement = performance.get("benchmarks", {}).get("improvement", "N/A")
-                    print(f"   ⚡ Performance: ✅ {optimizations} optimizations, {improvement}")
+                    print(f"   Performance: {optimizations} optimizations, {improvement}")
             
             # Production features
             if "production_result" in result.data_extracted:
@@ -538,7 +538,7 @@ def run_advanced_features_demo():
                 if not production.get("failed"):
                     readiness = production.get("production_readiness", "0%")
                     features = production.get("features_implemented", 0)
-                    print(f"   🏭 Production: ✅ {features} features, {readiness} ready")
+                    print(f"   Production: {features} features, {readiness} ready")
             
             # Configuration
             if "config_result" in result.data_extracted:
@@ -546,18 +546,18 @@ def run_advanced_features_demo():
                 if not config.get("failed"):
                     categories = config.get("total_config_categories", 0)
                     environments = config.get("total_environments", 0)
-                    print(f"   ⚙️  Configuration: ✅ {categories} categories, {environments} environments")
+                    print(f"   Configuration: {categories} categories, {environments} environments")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -571,7 +571,7 @@ def main():
     result = run_advanced_features_demo()
     
     if result.success:
-        print("\n🎉 Advanced features demo completed successfully!")
+        print("\nAdvanced features demo completed successfully!")
         print("This demo showcased:")
         print("  • Video recording for session replay")
         print("  • S3 integration for cloud storage")
@@ -580,12 +580,12 @@ def main():
         print("  • Production-ready deployment features")
         print("  • Advanced configuration management")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in advanced scenarios")
         print("  • Graceful degradation of advanced features")
         print("  • Production-ready error recovery")
     
-    print("\n💡 Production Recommendations:")
+    print("\nProduction Recommendations:")
     print("  • Implement comprehensive monitoring from day one")
     print("  • Use S3 or similar cloud storage for session data")
     print("  • Enable video recording for critical workflows")

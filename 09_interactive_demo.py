@@ -34,7 +34,7 @@ class InteractiveDemo(BaseDemo):
             self.logger.error("NOVA_ACT_API_KEY environment variable not set")
             return False
         
-        print("\n🎯 Interactive Demo Instructions:")
+        print("\nInteractive Demo Instructions:")
         print("This demo will show interactive Nova Act usage with debugging features.")
         print("You'll see examples of breakpoints, manual intervention, and state capture.")
         print("=" * 60)
@@ -89,7 +89,7 @@ class InteractiveDemo(BaseDemo):
         """Step 1: Start an interactive Nova Act session."""
         self.logger.log_step(1, "Interactive Session Start", "starting")
         
-        print("\n🚀 Starting Interactive Nova Act Session")
+        print("\nStarting Interactive Nova Act Session")
         print("=" * 40)
         
         try:
@@ -101,7 +101,7 @@ class InteractiveDemo(BaseDemo):
                 demo_site = self.get_fallback_sites()[0]
                 self.add_warning("Using fallback site for interactive demo")
             
-            print(f"📱 Opening browser to: {demo_site}")
+            print(f"Opening browser to: {demo_site}")
             
             # Create Nova Act instance for interactive use
             self.interactive_session = NovaAct(
@@ -113,11 +113,11 @@ class InteractiveDemo(BaseDemo):
             # Start the session
             self.interactive_session.start()
             
-            print("✅ Interactive session started successfully!")
-            print("🌐 Browser window should be visible")
+            print("Interactive session started successfully!")
+            print("Browser window should be visible")
             
             # Demonstrate basic interaction
-            print("\n📝 Performing basic interaction...")
+            print("\nPerforming basic interaction...")
             result = self.interactive_session.act("What is the main heading on this page?")
             
             session_data = {
@@ -149,14 +149,14 @@ class InteractiveDemo(BaseDemo):
             self.logger.log_step(2, "Breakpoint Demonstration", "skipped", "No interactive session")
             return {"breakpoint_result": {"skipped": True, "reason": "no_session"}}
         
-        print("\n🔍 Demonstrating Breakpoint Functionality")
+        print("\nDemonstrating Breakpoint Functionality")
         print("=" * 40)
         
         try:
             breakpoint_demos = []
             
             # Breakpoint 1: Before action
-            print("🛑 Breakpoint 1: Before performing action")
+            print("Breakpoint 1: Before performing action")
             print("   Current page state will be captured...")
             
             # Capture state before action
@@ -171,11 +171,11 @@ class InteractiveDemo(BaseDemo):
                 "timestamp": time.time()
             })
             
-            print(f"   📄 Page title: {page_title_before}")
-            print(f"   🔗 URL: {url_before}")
+            print(f"   Page title: {page_title_before}")
+            print(f"   URL: {url_before}")
             
             # Simulate user decision point
-            print("\n⏸️  Simulated breakpoint: User can inspect page state")
+            print("\nSimulated breakpoint: User can inspect page state")
             print("   In real usage, user could manually interact with browser here")
             time.sleep(2)  # Simulate inspection time
             
@@ -184,7 +184,7 @@ class InteractiveDemo(BaseDemo):
             result = self.interactive_session.act("scroll down to see more content")
             
             # Breakpoint 2: After action
-            print("\n🛑 Breakpoint 2: After performing action")
+            print("\nBreakpoint 2: After performing action")
             
             page_title_after = self.interactive_session.page.title()
             url_after = self.interactive_session.page.url
@@ -198,9 +198,9 @@ class InteractiveDemo(BaseDemo):
                 "timestamp": time.time()
             })
             
-            print(f"   📄 Page title: {page_title_after}")
-            print(f"   🔗 URL: {url_after}")
-            print(f"   📝 Action result: {result.response if result.response else 'No response'}")
+            print(f"   Page title: {page_title_after}")
+            print(f"   URL: {url_after}")
+            print(f"   Action result: {result.response if result.response else 'No response'}")
             
             breakpoint_data = {
                 "breakpoints_demonstrated": breakpoint_demos,
@@ -226,14 +226,14 @@ class InteractiveDemo(BaseDemo):
             self.logger.log_step(3, "Manual Intervention", "skipped", "No interactive session")
             return {"intervention_result": {"skipped": True, "reason": "no_session"}}
         
-        print("\n👤 Demonstrating Manual Intervention")
+        print("\nDemonstrating Manual Intervention")
         print("=" * 40)
         
         try:
             intervention_scenarios = []
             
             # Scenario 1: Simulated CAPTCHA handling
-            print("🤖 Scenario 1: Simulated CAPTCHA Detection")
+            print("Scenario 1: Simulated CAPTCHA Detection")
             
             # Check for CAPTCHA (simulated)
             result = self.interactive_session.act("Is there a CAPTCHA or verification challenge on this page?", schema=BOOL_SCHEMA)
@@ -247,14 +247,14 @@ class InteractiveDemo(BaseDemo):
             })
             
             if has_captcha:
-                print("   🚨 CAPTCHA detected - would pause for manual intervention")
-                print("   👤 User would solve CAPTCHA manually")
-                print("   ⏸️  Script would wait for user completion")
+                print("   CAPTCHA detected - would pause for manual intervention")
+                print("   User would solve CAPTCHA manually")
+                print("   Script would wait for user completion")
             else:
-                print("   ✅ No CAPTCHA detected - continuing automatically")
+                print("   No CAPTCHA detected - continuing automatically")
             
             # Scenario 2: Simulated form validation error
-            print("\n📝 Scenario 2: Simulated Form Validation")
+            print("\nScenario 2: Simulated Form Validation")
             
             # Try to find a form (if any)
             result = self.interactive_session.act("Are there any forms visible on this page?", schema=BOOL_SCHEMA)
@@ -268,13 +268,13 @@ class InteractiveDemo(BaseDemo):
             })
             
             if has_form:
-                print("   📋 Form detected - would validate before submission")
-                print("   👤 User could review form data manually")
+                print("   Form detected - would validate before submission")
+                print("   User could review form data manually")
             else:
                 print("   ℹ️  No forms detected on this page")
             
             # Scenario 3: Simulated network timeout
-            print("\n🌐 Scenario 3: Simulated Network Issue Handling")
+            print("\nScenario 3: Simulated Network Issue Handling")
             
             # Simulate checking page load status
             page_loaded = True  # Simplified for demo
@@ -287,10 +287,10 @@ class InteractiveDemo(BaseDemo):
             })
             
             if page_loaded:
-                print("   ✅ Page loaded successfully - no intervention needed")
+                print("   Page loaded successfully - no intervention needed")
             else:
-                print("   ⚠️  Page load timeout - would pause for manual check")
-                print("   👤 User could refresh or navigate manually")
+                print("   Page load timeout - would pause for manual check")
+                print("   User could refresh or navigate manually")
             
             successful_scenarios = len([s for s in intervention_scenarios if not s.get("intervention_needed", False)])
             
@@ -319,14 +319,14 @@ class InteractiveDemo(BaseDemo):
             self.logger.log_step(4, "State Capture", "skipped", "No interactive session")
             return {"state_result": {"skipped": True, "reason": "no_session"}}
         
-        print("\n📸 Capturing Current State")
+        print("\nCapturing Current State")
         print("=" * 40)
         
         try:
             state_data = {}
             
             # Capture page information
-            print("📄 Capturing page information...")
+            print("Capturing page information...")
             state_data["page_info"] = {
                 "title": self.interactive_session.page.title(),
                 "url": self.interactive_session.page.url,
@@ -335,7 +335,7 @@ class InteractiveDemo(BaseDemo):
             }
             
             # Capture DOM information
-            print("🌐 Capturing DOM information...")
+            print("Capturing DOM information...")
             try:
                 dom_content = self.interactive_session.page.content()
                 state_data["dom_info"] = {
@@ -348,7 +348,7 @@ class InteractiveDemo(BaseDemo):
                 state_data["dom_info"] = {"error": str(e)}
             
             # Capture screenshot
-            print("📷 Capturing screenshot...")
+            print("Capturing screenshot...")
             try:
                 screenshot_path = "./demo/screenshots/interactive_state.png"
                 os.makedirs(os.path.dirname(screenshot_path), exist_ok=True)
@@ -358,12 +358,12 @@ class InteractiveDemo(BaseDemo):
                     "path": screenshot_path,
                     "size": os.path.getsize(screenshot_path) if os.path.exists(screenshot_path) else 0
                 }
-                print(f"   📁 Screenshot saved: {screenshot_path}")
+                print(f"   Screenshot saved: {screenshot_path}")
             except Exception as e:
                 state_data["screenshot"] = {"captured": False, "error": str(e)}
             
             # Capture browser state
-            print("🔍 Capturing browser state...")
+            print("Capturing browser state...")
             try:
                 # Get cookies
                 cookies = self.interactive_session.page.context.cookies()
@@ -376,7 +376,7 @@ class InteractiveDemo(BaseDemo):
                 state_data["browser_state"] = {"error": str(e)}
             
             # Analyze captured state
-            print("📊 Analyzing captured state...")
+            print("Analyzing captured state...")
             analysis = {
                 "page_accessible": bool(state_data.get("page_info", {}).get("title")),
                 "content_available": state_data.get("dom_info", {}).get("content_length", 0) > 0,
@@ -387,11 +387,11 @@ class InteractiveDemo(BaseDemo):
             state_data["analysis"] = analysis
             state_data["capture_successful"] = all(analysis.values())
             
-            print(f"✅ State capture completed:")
-            print(f"   📄 Page accessible: {analysis['page_accessible']}")
-            print(f"   📝 Content available: {analysis['content_available']}")
-            print(f"   📷 Screenshot captured: {analysis['screenshot_captured']}")
-            print(f"   🔍 Browser state captured: {analysis['browser_state_captured']}")
+            print(f"State capture completed:")
+            print(f"   Page accessible: {analysis['page_accessible']}")
+            print(f"   Content available: {analysis['content_available']}")
+            print(f"   Screenshot captured: {analysis['screenshot_captured']}")
+            print(f"   Browser state captured: {analysis['browser_state_captured']}")
             
             self.logger.log_step(4, "State Capture", "completed", 
                                f"Capture successful: {state_data['capture_successful']}")
@@ -411,7 +411,7 @@ class InteractiveDemo(BaseDemo):
             self.logger.log_step(5, "Interactive Debugging", "skipped", "No interactive session")
             return {"debug_result": {"skipped": True, "reason": "no_session"}}
         
-        print("\n🐛 Interactive Debugging Session")
+        print("\nInteractive Debugging Session")
         print("=" * 40)
         
         try:
@@ -424,7 +424,7 @@ class InteractiveDemo(BaseDemo):
             debug_start_time = time.time()
             
             # Debug command 1: Inspect current element
-            print("🔍 Debug Command 1: Inspect page elements")
+            print("Debug Command 1: Inspect page elements")
             try:
                 result = self.interactive_session.act("describe what elements are visible on this page")
                 debug_session["debug_commands"].append({
@@ -433,7 +433,7 @@ class InteractiveDemo(BaseDemo):
                     "successful": bool(result.response),
                     "timestamp": time.time()
                 })
-                print(f"   📝 Result: {result.response if result.response else 'No response'}")
+                print(f"   Result: {result.response if result.response else 'No response'}")
             except Exception as e:
                 debug_session["debug_commands"].append({
                     "command": "inspect_elements",
@@ -443,7 +443,7 @@ class InteractiveDemo(BaseDemo):
                 })
             
             # Debug command 2: Check page functionality
-            print("\n🧪 Debug Command 2: Test page functionality")
+            print("\nDebug Command 2: Test page functionality")
             try:
                 result = self.interactive_session.act("Are there any interactive elements like buttons or links?", schema=BOOL_SCHEMA)
                 has_interactive = result.matches_schema and result.parsed_response
@@ -453,7 +453,7 @@ class InteractiveDemo(BaseDemo):
                     "successful": result.matches_schema,
                     "timestamp": time.time()
                 })
-                print(f"   🎯 Interactive elements found: {has_interactive}")
+                print(f"   Interactive elements found: {has_interactive}")
             except Exception as e:
                 debug_session["debug_commands"].append({
                     "command": "test_functionality",
@@ -463,7 +463,7 @@ class InteractiveDemo(BaseDemo):
                 })
             
             # Debug command 3: Performance check
-            print("\n⚡ Debug Command 3: Performance analysis")
+            print("\nDebug Command 3: Performance analysis")
             try:
                 # Simple performance metrics
                 page_load_time = time.time() - debug_start_time
@@ -473,7 +473,7 @@ class InteractiveDemo(BaseDemo):
                     "successful": True,
                     "timestamp": time.time()
                 })
-                print(f"   📊 Page interaction time: {page_load_time:.2f}s")
+                print(f"   Page interaction time: {page_load_time:.2f}s")
             except Exception as e:
                 debug_session["debug_commands"].append({
                     "command": "performance_check",
@@ -487,9 +487,9 @@ class InteractiveDemo(BaseDemo):
             debug_session["successful_commands"] = successful_commands
             debug_session["total_commands"] = len(debug_session["debug_commands"])
             
-            print(f"\n📈 Debug Session Summary:")
-            print(f"   ⏱️  Duration: {debug_session['session_duration']:.2f}s")
-            print(f"   ✅ Successful commands: {successful_commands}/{len(debug_session['debug_commands'])}")
+            print(f"\nDebug Session Summary:")
+            print(f"   Duration: {debug_session['session_duration']:.2f}s")
+            print(f"   Successful commands: {successful_commands}/{len(debug_session['debug_commands'])}")
             
             self.logger.log_step(5, "Interactive Debugging", "completed", 
                                f"{successful_commands} debug commands successful")
@@ -505,16 +505,16 @@ class InteractiveDemo(BaseDemo):
             # Clean up interactive session
             if self.interactive_session:
                 try:
-                    print("\n🔚 Closing interactive session...")
+                    print("\nClosing interactive session...")
                     self.interactive_session.stop()
-                    print("✅ Interactive session closed")
+                    print("Interactive session closed")
                 except Exception as e:
-                    print(f"⚠️  Warning: Error closing session: {e}")
+                    print(f"Warning: Error closing session: {e}")
 
 
 def run_interactive_demo():
     """Run the interactive demo."""
-    print("🎮 Starting Enhanced Interactive Demo")
+    print("Starting Enhanced Interactive Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -525,27 +525,27 @@ def run_interactive_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Interactive Demo Summary:")
+            print("\nInteractive Demo Summary:")
             
             # Session info
             if "session_info" in result.data_extracted:
                 session = result.data_extracted["session_info"]
                 started = session.get("session_started", False)
                 site = session.get("demo_site", "Unknown")
-                print(f"   🚀 Session started: {started}")
-                print(f"   🌐 Demo site: {site}")
+                print(f"   Session started: {started}")
+                print(f"   Demo site: {site}")
             
             # Breakpoint results
             if "breakpoint_result" in result.data_extracted:
                 breakpoints = result.data_extracted["breakpoint_result"]
                 if not breakpoints.get("skipped"):
                     count = breakpoints.get("total_breakpoints", 0)
-                    print(f"   🛑 Breakpoints demonstrated: {count}")
+                    print(f"   Breakpoints demonstrated: {count}")
             
             # Manual intervention
             if "intervention_result" in result.data_extracted:
@@ -553,7 +553,7 @@ def run_interactive_demo():
                 if not intervention.get("skipped"):
                     scenarios = intervention.get("total_scenarios", 0)
                     successful = intervention.get("successful_scenarios", 0)
-                    print(f"   👤 Intervention scenarios: {successful}/{scenarios}")
+                    print(f"   Intervention scenarios: {successful}/{scenarios}")
             
             # State capture
             if "state_result" in result.data_extracted:
@@ -561,8 +561,8 @@ def run_interactive_demo():
                 if not state.get("skipped"):
                     captured = state.get("capture_successful", False)
                     screenshot = state.get("screenshot", {}).get("captured", False)
-                    print(f"   📸 State capture: {'✅ Success' if captured else '❌ Failed'}")
-                    print(f"   📷 Screenshot: {'✅ Captured' if screenshot else '❌ Failed'}")
+                    print(f"   State capture: {'Success' if captured else 'Failed'}")
+                    print(f"   Screenshot: {'Captured' if screenshot else 'Failed'}")
             
             # Debug session
             if "debug_result" in result.data_extracted:
@@ -571,19 +571,19 @@ def run_interactive_demo():
                     successful = debug.get("successful_commands", 0)
                     total = debug.get("total_commands", 0)
                     duration = debug.get("session_duration", 0)
-                    print(f"   🐛 Debug commands: {successful}/{total} successful")
-                    print(f"   ⏱️  Debug duration: {duration:.2f}s")
+                    print(f"   Debug commands: {successful}/{total} successful")
+                    print(f"   Debug duration: {duration:.2f}s")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -597,7 +597,7 @@ def main():
     result = run_interactive_demo()
     
     if result.success:
-        print("\n🎉 Interactive demo completed successfully!")
+        print("\nInteractive demo completed successfully!")
         print("This demo showcased:")
         print("  • Interactive Nova Act session management")
         print("  • Breakpoint functionality for debugging")
@@ -605,12 +605,12 @@ def main():
         print("  • Comprehensive state capture and analysis")
         print("  • Interactive debugging commands")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in interactive sessions")
         print("  • Safe session management and cleanup")
         print("  • Graceful handling of browser state issues")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Use interactive mode for development and debugging")
     print("  • Implement proper session cleanup and error handling")
     print("  • Capture state at key points for troubleshooting")

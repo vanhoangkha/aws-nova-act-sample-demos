@@ -284,7 +284,7 @@ class InformationExtractionDemo(BaseDemo):
 
 def run_extraction_demo():
     """Run the information extraction demo."""
-    print("📊 Starting Enhanced Information Extraction Demo")
+    print("Starting Enhanced Information Extraction Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -295,44 +295,44 @@ def run_extraction_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Extraction Summary:")
+            print("\nExtraction Summary:")
             
             # Books
             if result.data_extracted.get("books"):
                 book_count = result.data_extracted.get("book_count", 0)
-                print(f"   📚 Books extracted: {book_count}")
+                print(f"   Books extracted: {book_count}")
             
             # News
             if result.data_extracted.get("news"):
                 article_count = result.data_extracted.get("article_count", 0)
                 news_source = result.data_extracted.get("news_source", "unknown")
-                print(f"   📰 News articles extracted: {article_count} from {news_source}")
+                print(f"   News articles extracted: {article_count} from {news_source}")
             
             # Product
             if result.data_extracted.get("product"):
                 product_source = result.data_extracted.get("product_source", "unknown")
-                print(f"   🛍️  Product extracted from: {product_source}")
+                print(f"   Product extracted from: {product_source}")
             
             # Boolean
             if result.data_extracted.get("boolean_extraction"):
                 boolean_count = len(result.data_extracted["boolean_extraction"])
-                print(f"   ✅ Boolean questions processed: {boolean_count}")
+                print(f"   Boolean questions processed: {boolean_count}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -346,14 +346,14 @@ def main():
     result = run_extraction_demo()
     
     if result.success:
-        print("\n🎉 Information extraction demo completed successfully!")
+        print("\nInformation extraction demo completed successfully!")
         print("This demo showcased:")
         print("  • Structured data extraction with Pydantic schemas")
         print("  • Geographic-aware site selection")
         print("  • Robust error handling with fallbacks")
         print("  • Multiple extraction strategies")
     else:
-        print("\n⚠️ Demo encountered some issues, but this is expected.")
+        print("\nDemo encountered some issues, but this is expected.")
         print("The framework handled errors gracefully and provided useful feedback.")
 
 

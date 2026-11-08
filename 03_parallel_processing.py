@@ -108,9 +108,9 @@ class ParallelProcessingDemo(BaseDemo):
             
             if is_accessible:
                 accessible_sites.append(site)
-                self.logger.info(f"✅ {site} is accessible")
+                self.logger.info(f"{site} is accessible")
             else:
-                self.logger.warning(f"❌ {site} is not accessible")
+                self.logger.warning(f"{site} is not accessible")
         
         if not accessible_sites:
             # Use fallback sites
@@ -149,12 +149,12 @@ class ParallelProcessingDemo(BaseDemo):
                     result = future.result(timeout=60)  # 60 second timeout per site
                     if result:
                         results.append(result)
-                        self.logger.info(f"✅ Search completed on {site}")
+                        self.logger.info(f"Search completed on {site}")
                     else:
-                        self.logger.warning(f"⚠️ No results from {site}")
+                        self.logger.warning(f"No results from {site}")
                         
                 except Exception as e:
-                    self.logger.error(f"❌ Search failed on {site}: {str(e)}")
+                    self.logger.error(f"Search failed on {site}: {str(e)}")
                     # Continue with other sites
                     continue
         
@@ -253,7 +253,7 @@ class ParallelProcessingDemo(BaseDemo):
 
 def run_parallel_demo():
     """Run the parallel processing demo."""
-    print("🔄 Starting Enhanced Parallel Processing Demo")
+    print("Starting Enhanced Parallel Processing Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -264,35 +264,35 @@ def run_parallel_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted and "aggregated_results" in result.data_extracted:
             agg = result.data_extracted["aggregated_results"]
-            print(f"\n📋 Parallel Processing Summary:")
-            print(f"   🌐 Sites searched: {agg.get('total_sites_searched', 0)}")
-            print(f"   ✅ Successful searches: {agg.get('successful_searches', 0)}")
-            print(f"   ❌ Failed searches: {agg.get('failed_searches', 0)}")
-            print(f"   📈 Success rate: {agg.get('success_rate', 0):.1f}%")
+            print(f"\nParallel Processing Summary:")
+            print(f"   Sites searched: {agg.get('total_sites_searched', 0)}")
+            print(f"   Successful searches: {agg.get('successful_searches', 0)}")
+            print(f"   Failed searches: {agg.get('failed_searches', 0)}")
+            print(f"   Success rate: {agg.get('success_rate', 0):.1f}%")
             
             if agg.get('search_summary'):
                 summary = agg['search_summary']
                 if summary.get('sites_with_results'):
-                    print(f"   🎯 Sites with results: {', '.join(summary['sites_with_results'])}")
+                    print(f"   Sites with results: {', '.join(summary['sites_with_results'])}")
                 if summary.get('sites_with_errors'):
-                    print(f"   ⚠️  Sites with errors: {', '.join(summary['sites_with_errors'])}")
+                    print(f"   Sites with errors: {', '.join(summary['sites_with_errors'])}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -306,7 +306,7 @@ def main():
     result = run_parallel_demo()
     
     if result.success:
-        print("\n🎉 Parallel processing demo completed successfully!")
+        print("\nParallel processing demo completed successfully!")
         print("This demo showcased:")
         print("  • Concurrent browser sessions with ThreadPoolExecutor")
         print("  • Site accessibility validation before parallel execution")
@@ -314,7 +314,7 @@ def main():
         print("  • Results aggregation from multiple sources")
         print("  • Geographic-aware site selection")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in parallel execution")
         print("  • Graceful degradation when sites are unavailable")
         print("  • Comprehensive logging for debugging parallel operations")

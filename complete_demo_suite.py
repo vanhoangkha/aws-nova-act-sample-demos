@@ -20,7 +20,7 @@ from demo_framework import BaseDemo, DemoResult, ConfigManager, Logger
 
 def main():
     """Run the complete Nova Act demo suite."""
-    print("🚀 Nova Act Complete Demo Suite")
+    print("Nova Act Complete Demo Suite")
     print("=" * 60)
     print("Enhanced with robust error handling, geographic awareness,")
     print("and production-ready reliability features.")
@@ -28,7 +28,7 @@ def main():
     
     # Check API key
     if not os.getenv('NOVA_ACT_API_KEY'):
-        print("❌ Please set NOVA_ACT_API_KEY environment variable")
+        print("Please set NOVA_ACT_API_KEY environment variable")
         print("   Get your API key from: https://nova.amazon.com/act")
         print("   Then run: export NOVA_ACT_API_KEY='your_api_key'")
         sys.exit(1)
@@ -37,21 +37,21 @@ def main():
     config_manager = ConfigManager()
     env_info = config_manager.detect_environment()
     
-    print(f"\n🌍 Environment Information:")
+    print(f"\nEnvironment Information:")
     print(f"   Location: {env_info.country_code} ({env_info.region})")
     print(f"   Platform: {env_info.platform}")
     print(f"   Python: {env_info.python_version}")
     print(f"   VPN Detected: {env_info.has_vpn}")
     
     # Show optimal sites for user's region
-    print(f"\n🌐 Optimal Sites for Your Region:")
+    print(f"\nOptimal Sites for Your Region:")
     ecommerce_sites = config_manager.get_optimal_sites("ecommerce")
     news_sites = config_manager.get_optimal_sites("news")
     real_estate_sites = config_manager.get_optimal_sites("real_estate")
     
-    print(f"   🛒 E-commerce: {', '.join(ecommerce_sites[:3])}")
-    print(f"   📰 News: {', '.join(news_sites[:3])}")
-    print(f"   🏠 Real Estate: {', '.join(real_estate_sites[:3])}")
+    print(f"   E-commerce: {', '.join(ecommerce_sites[:3])}")
+    print(f"   News: {', '.join(news_sites[:3])}")
+    print(f"   Real Estate: {', '.join(real_estate_sites[:3])}")
     
     # Demo suite information
     demos = [
@@ -117,15 +117,15 @@ def main():
         }
     ]
     
-    print(f"\n📋 Demo Suite Overview ({len(demos)} demos):")
+    print(f"\nDemo Suite Overview ({len(demos)} demos):")
     for i, demo in enumerate(demos, 1):
-        status = "✅ Enhanced" if demo["enhanced"] else "⏳ Basic"
+        status = "Enhanced" if demo["enhanced"] else "Basic"
         print(f"   {i:2d}. {demo['name']}")
         print(f"       {demo['description']}")
         print(f"       Status: {status}")
     
     # Ask user for confirmation
-    print(f"\n🎯 Ready to run all {len(demos)} demos!")
+    print(f"\nReady to run all {len(demos)} demos!")
     print("This will demonstrate:")
     print("  • Geographic awareness and site selection")
     print("  • Robust error handling with graceful degradation")
@@ -139,7 +139,7 @@ def main():
         sys.exit(0)
     
     # Run the enhanced demo suite
-    print(f"\n🚀 Starting Enhanced Demo Suite Runner...")
+    print(f"\nStarting Enhanced Demo Suite Runner...")
     
     try:
         # Import and run the enhanced runner
@@ -148,39 +148,39 @@ def main():
                               capture_output=False, text=True)
         
         if result.returncode == 0:
-            print("\n🎉 Complete demo suite finished successfully!")
+            print("\nComplete demo suite finished successfully!")
         else:
-            print("\n⚠️  Demo suite completed with some issues (this is normal).")
+            print("\nDemo suite completed with some issues (this is normal).")
             print("The enhanced framework handled errors gracefully.")
         
     except Exception as e:
-        print(f"\n❌ Error running demo suite: {e}")
+        print(f"\nError running demo suite: {e}")
         print("You can run individual demos manually:")
         for demo in demos:
             if os.path.exists(demo["file"]):
                 print(f"   python {demo['file']}")
     
     # Final summary
-    print(f"\n📊 Nova Act Demo Suite Summary:")
-    print(f"   🎯 Total demos: {len(demos)}")
-    print(f"   ✅ Enhanced demos: {len([d for d in demos if d['enhanced']])}")
-    print(f"   🌍 Geographic compatibility: Global")
-    print(f"   🛡️  Error handling: Comprehensive")
-    print(f"   📈 Reliability: Production-ready")
+    print(f"\nNova Act Demo Suite Summary:")
+    print(f"   Total demos: {len(demos)}")
+    print(f"   Enhanced demos: {len([d for d in demos if d['enhanced']])}")
+    print(f"   Geographic compatibility: Global")
+    print(f"   Error handling: Comprehensive")
+    print(f"   Reliability: Production-ready")
     
-    print(f"\n💡 Next Steps:")
+    print(f"\nNext Steps:")
     print(f"   • Review detailed logs in ./demo/logs/")
     print(f"   • Check comprehensive reports for troubleshooting")
     print(f"   • Explore individual demo implementations")
     print(f"   • Adapt the framework for your specific use cases")
     
-    print(f"\n🔗 Resources:")
+    print(f"\nResources:")
     print(f"   • Nova Act Documentation: https://github.com/amazon-science/nova-act")
     print(f"   • Get API Key: https://nova.amazon.com/act")
     print(f"   • Framework Code: ./demo_framework/")
     print(f"   • Demo Examples: ./*_demo.py files")
     
-    print(f"\n✨ Thank you for using the Enhanced Nova Act Demo Suite!")
+    print(f"\nThank you for using the Enhanced Nova Act Demo Suite!")
 
 
 if __name__ == "__main__":

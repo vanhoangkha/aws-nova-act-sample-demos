@@ -494,7 +494,7 @@ class SearchFilterDemo(BaseDemo):
 
 def run_search_filter_demo():
     """Run the search and filter demo."""
-    print("🔍 Starting Enhanced Search and Filter Demo")
+    print("Starting Enhanced Search and Filter Demo")
     print("=" * 50)
     
     # Create demo instance
@@ -505,19 +505,19 @@ def run_search_filter_demo():
     
     # Print results
     if result.success:
-        print("✅ Demo completed successfully!")
-        print(f"⏱️  Execution time: {result.execution_time:.2f} seconds")
-        print(f"📊 Steps completed: {result.steps_completed}/{result.steps_total}")
+        print("Demo completed successfully!")
+        print(f"Execution time: {result.execution_time:.2f} seconds")
+        print(f"Steps completed: {result.steps_completed}/{result.steps_total}")
         
         if result.data_extracted:
-            print("\n📋 Search and Filter Summary:")
+            print("\nSearch and Filter Summary:")
             
             # Search results
             if "search_result" in result.data_extracted:
                 search = result.data_extracted["search_result"]
                 term = search.get("search_term", "unknown")
                 successful = search.get("search_successful", False)
-                print(f"   🔍 Search term: '{term}' - {'✅ Success' if successful else '❌ Failed'}")
+                print(f"   Search term: '{term}' - {'Success' if successful else 'Failed'}")
             
             # Filter results
             if "filter_result" in result.data_extracted:
@@ -525,21 +525,21 @@ def run_search_filter_demo():
                 if not filters.get("skipped"):
                     successful = filters.get("successful_count", 0)
                     total = filters.get("total_attempted", 0)
-                    print(f"   🎛️  Filters applied: {successful}/{total}")
+                    print(f"   Filters applied: {successful}/{total}")
             
             # Sort results
             if "sort_result" in result.data_extracted:
                 sorts = result.data_extracted["sort_result"]
                 if not sorts.get("skipped"):
                     successful = sorts.get("successful_count", 0)
-                    print(f"   📊 Sorting operations: {successful} successful")
+                    print(f"   Sorting operations: {successful} successful")
             
             # Refinement results
             if "refinement_result" in result.data_extracted:
                 refinement = result.data_extracted["refinement_result"]
                 if not refinement.get("failed"):
                     successful = refinement.get("successful_count", 0)
-                    print(f"   🎯 Search refinements: {successful} successful")
+                    print(f"   Search refinements: {successful} successful")
             
             # Extraction results
             if "extraction_result" in result.data_extracted:
@@ -547,19 +547,19 @@ def run_search_filter_demo():
                 if not extraction.get("failed"):
                     extracted = len(extraction.get("results", []))
                     relevant = extraction.get("results_relevant", False)
-                    print(f"   📄 Results extracted: {extracted}")
-                    print(f"   ✅ Results relevant: {relevant}")
+                    print(f"   Results extracted: {extracted}")
+                    print(f"   Results relevant: {relevant}")
     else:
-        print("❌ Demo encountered issues:")
+        print("Demo encountered issues:")
         for error in result.errors:
             print(f"   • {error.error_type}: {error.message}")
     
     if result.warnings:
-        print("⚠️  Warnings:")
+        print("Warnings:")
         for warning in result.warnings:
             print(f"   • {warning}")
     
-    print(f"📄 Detailed logs: {result.log_path}")
+    print(f"Detailed logs: {result.log_path}")
     
     return result
 
@@ -573,7 +573,7 @@ def main():
     result = run_search_filter_demo()
     
     if result.success:
-        print("\n🎉 Search and filter demo completed successfully!")
+        print("\nSearch and filter demo completed successfully!")
         print("This demo showcased:")
         print("  • Multi-criteria search and filtering")
         print("  • Dynamic sorting of search results")
@@ -581,12 +581,12 @@ def main():
         print("  • Result extraction and validation")
         print("  • Geographic-aware site selection")
     else:
-        print("\n⚠️ Demo encountered some issues, but this demonstrates:")
+        print("\nDemo encountered some issues, but this demonstrates:")
         print("  • Robust error handling in search operations")
         print("  • Graceful degradation when filters aren't available")
         print("  • Adaptive search strategies across different sites")
     
-    print("\n💡 Production Tips:")
+    print("\nProduction Tips:")
     print("  • Implement search result caching for performance")
     print("  • Use structured data extraction with schemas")
     print("  • Handle pagination for comprehensive results")

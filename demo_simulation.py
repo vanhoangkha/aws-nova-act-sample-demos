@@ -95,7 +95,7 @@ def simulate_demo_suite():
     """Simulate running the complete demo suite."""
     print("Enhanced Nova Act Demo Suite Runner")
     print("="*50)
-    print("🔄 SIMULATION MODE - Demonstrating framework capabilities")
+    print("SIMULATION MODE - Demonstrating framework capabilities")
     print("="*50)
     
     # Create orchestrator components
@@ -149,12 +149,12 @@ def simulate_demo_suite():
         results.append(result)
         
         # Show immediate result
-        status = "✅ SUCCESS" if result.success else "❌ FAILED"
+        status = "SUCCESS" if result.success else "FAILED"
         print(f"{status} - {result.execution_time:.2f}s - Steps: {result.steps_completed}/{result.steps_total}")
         
         if result.warnings:
             for warning in result.warnings:
-                print(f"⚠️  {warning}")
+                print(f"{warning}")
         
         # Brief pause between demos
         time.sleep(0.5)
@@ -190,7 +190,7 @@ def simulate_demo_suite():
     print()
     
     if successful_demos:
-        print(f"✅ SUCCESSFUL DEMOS ({len(successful_demos)})")
+        print(f"SUCCESSFUL DEMOS ({len(successful_demos)})")
         print("="*40)
         for demo in successful_demos:
             print(f"• {demo.demo_name}")
@@ -201,7 +201,7 @@ def simulate_demo_suite():
             print()
     
     if failed_demos:
-        print(f"❌ FAILED DEMOS ({len(failed_demos)})")
+        print(f"FAILED DEMOS ({len(failed_demos)})")
         print("="*40)
         for demo in failed_demos:
             print(f"• {demo.demo_name}")
@@ -214,35 +214,35 @@ def simulate_demo_suite():
     
     print("FRAMEWORK CAPABILITIES DEMONSTRATED")
     print("="*40)
-    print("✅ Geographic awareness and region-specific site selection")
-    print("✅ Comprehensive error handling with graceful degradation")
-    print("✅ Structured logging with performance metrics")
-    print("✅ Detailed reporting with troubleshooting guidance")
-    print("✅ Modular architecture for easy extension")
-    print("✅ Production-ready reliability and monitoring")
+    print("Geographic awareness and region-specific site selection")
+    print("Comprehensive error handling with graceful degradation")
+    print("Structured logging with performance metrics")
+    print("Detailed reporting with troubleshooting guidance")
+    print("Modular architecture for easy extension")
+    print("Production-ready reliability and monitoring")
     print()
     
     print("RECOMMENDATIONS")
     print("="*40)
     if len(successful_demos) == len(results):
-        print("🎉 All demos completed successfully!")
+        print("All demos completed successfully!")
         print("• Your environment is well-configured for Nova Act")
         print("• Framework is working optimally")
         print("• Ready for production use with real API key")
     else:
-        print("⚠️ Some demos encountered simulated issues:")
+        print("Some demos encountered simulated issues:")
         print("• This demonstrates the framework's error handling capabilities")
         print("• In real usage, geographic restrictions would be handled automatically")
         print("• Fallback sites and recovery strategies would be employed")
         print("• Detailed troubleshooting guidance would be provided")
     
     print()
-    print("🔑 To run with real Nova Act API:")
+    print("To run with real Nova Act API:")
     print("   1. Get API key from https://nova.amazon.com/act")
     print("   2. Set: export NOVA_ACT_API_KEY='your_api_key'")
     print("   3. Run: python run_all_demos.py")
     print()
-    print("🎯 Framework Status: ✅ FULLY OPERATIONAL")
+    print("Framework Status: FULLY OPERATIONAL")
 
 
 if __name__ == "__main__":
