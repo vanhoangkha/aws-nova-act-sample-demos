@@ -1,4 +1,4 @@
-# 🚀 Nova Act Sample Demos
+# Nova Act Sample Demos
 
 [![Nova Act](https://img.shields.io/badge/Nova%20Act-Latest-blue)](https://nova.amazon.com/act)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-green)](https://python.org)
@@ -6,9 +6,9 @@
 
 **Complete sample demos collection** based on the official Nova Act README - Amazon's browser automation SDK.
 
-> 🎯 **Based on**: [Official README](https://github.com/aws/nova-act) with all features and best practices
+> **Based on**: [Official README](https://github.com/aws/nova-act) with all features and best practices
 
-## ⚡ Quick Start (30 seconds)
+## Quick Start (30 seconds)
 
 ```bash
 # 1. Auto setup
@@ -21,66 +21,66 @@ export NOVA_ACT_API_KEY="your_api_key_here"
 python3 run_all_samples.py
 ```
 
-## 🎯 Available Demos
+## Available Demos
 
-### 📚 **Official Samples** (Based on official README)
+### **Official Samples** (Based on official README)
 
-#### ☕ 1. Coffee Maker Order (`sample_01_coffee_maker.py`) ⭐
+#### 1. Coffee Maker Order (`sample_01_coffee_maker.py`)
 - Order coffee maker on Amazon
 - Following Quick Start guide from official README
 - **Features**: Basic act() usage, Amazon automation
 - **Duration**: ~3 minutes
 
-#### 📖 2. Book Extraction (`sample_02_book_extraction.py`) ⭐⭐
+#### 2. Book Extraction (`sample_02_book_extraction.py`)
 - Extract NYT bestseller book list with Pydantic
 - Schema validation and structured data
 - **Features**: Pydantic BaseModel, Schema validation
 - **Duration**: ~2 minutes
 
-#### ⚡ 3. Parallel Processing (`sample_03_parallel_books.py`) ⭐⭐⭐
+#### 3. Parallel Processing (`sample_03_parallel_books.py`)
 - Collect books from multiple years with ThreadPoolExecutor
 - Multiple NovaAct instances running in parallel
 - **Features**: ThreadPoolExecutor, Error handling
 - **Duration**: ~5 minutes
 
-#### 🔐 4. Authentication & Sessions (`sample_04_authentication.py`) ⭐⭐⭐
+#### 4. Authentication & Sessions (`sample_04_authentication.py`)
 - Persistent browser state with user_data_dir
 - Session management and parallel processing with cloning
 - **Features**: user_data_dir, Session persistence, BOOL_SCHEMA
 - **Duration**: ~4 minutes
 
-#### 🔒 5. Sensitive Data Handling (`sample_05_sensitive_data.py`) ⭐⭐
+#### 5. Sensitive Data Handling (`sample_05_sensitive_data.py`)
 - Handle passwords and sensitive information safely
 - CAPTCHA handling and security best practices
 - **Features**: getpass, Playwright keyboard, CAPTCHA handling
 - **Duration**: ~3 minutes
 
-#### 📁 6. File Operations (`sample_06_file_operations.py`) ⭐⭐⭐
+#### 6. File Operations (`sample_06_file_operations.py`)
 - Upload/download files with Playwright integration
 - Multiple files, drag & drop, page content download
 - **Features**: File upload, Download capture, Multiple files
 - **Duration**: ~3.5 minutes
 
-#### 🚀 7. Advanced Features (`sample_07_advanced_features.py`) ⭐⭐⭐⭐
+#### 7. Advanced Features (`sample_07_advanced_features.py`)
 - Logging, video recording, S3 integration, proxy
 - Production-ready features and configurations
 - **Features**: Custom logging, Video recording, S3, Proxy
 - **Duration**: ~2.5 minutes
 
-#### 🎮 8. Interactive Mode (`sample_08_interactive_mode.py`) ⭐⭐
+#### 8. Interactive Mode (`sample_08_interactive_mode.py`)
 - Interactive control and debugging
 - Step-by-step workflow with user input
 - **Features**: Interactive session, Debugging, Breakpoints
 - **Duration**: ~5 minutes (interactive)
 
-## 🛠️ Installation & Usage
+## Installation & Usage
 
-### 📋 Requirements
+### Requirements
 - **Python 3.10+**
 - **Nova Act API Key** from [nova.amazon.com/act](https://nova.amazon.com/act)
 - **Internet connection**
 
-### ⚡ Quick Setup
+### Quick Setup
 ```bash
 # Clone repository
 git clone https://github.com/vanhoangkha/nova-act-samples.git
@@ -96,7 +96,7 @@ export NOVA_ACT_API_KEY="your_api_key_here"
 python3 run_all_samples.py
 ```
 
-### 🎮 Run Individual Demos
+### Run Individual Demos
 
 **Official samples:**
 ```bash
@@ -115,7 +115,7 @@ python3 sample_08_interactive_mode.py    # Interactive mode
 python3 run_all_samples.py              # Run all official samples
 ```
 
-## 💡 Code Examples
+## Code Examples
 
 ### Quick Start - Coffee Maker
 ```python
@@ -164,9 +164,9 @@ with ThreadPoolExecutor(max_workers=3) as executor:
             print(f"Error: {exc}")
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
-### ❌ API Key Error
+### API Key Error
 ```bash
 # Check API key
 echo $NOVA_ACT_API_KEY
@@ -175,34 +175,34 @@ echo $NOVA_ACT_API_KEY
 export NOVA_ACT_API_KEY="your_key_here"
 ```
 
-### ❌ "Missing X server" Error
+### "Missing X server" Error
 Samples are configured with `headless=True` to run on servers.
 
-### ❌ Samples Running Slowly
+### Samples Running Slowly
 Normal - Nova Act needs time to analyze web pages (2-5 minutes/sample).
 
-### ❌ Interactive Samples
+### Interactive Samples
 Some samples require user interaction (authentication, interactive mode).
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Nova-Act-sample/
-├── 📄 README.md                        # Main guide
-├── ⚡ quick_setup.py                   # Auto setup
-├── 🚀 run_all_samples.py              # Run all official samples
-└── 📚 Official Samples:
-    ├── ☕ sample_01_coffee_maker.py        # Coffee maker order
-    ├── 📖 sample_02_book_extraction.py     # Pydantic extraction
-    ├── ⚡ sample_03_parallel_books.py      # Parallel processing
-    ├── 🔐 sample_04_authentication.py      # Authentication
-    ├── 🔒 sample_05_sensitive_data.py      # Sensitive data
-    ├── 📁 sample_06_file_operations.py     # File operations
-    ├── 🚀 sample_07_advanced_features.py   # Advanced features
-    └── 🎮 sample_08_interactive_mode.py    # Interactive mode
+├── README.md # Main guide
+├── quick_setup.py # Auto setup
+├── run_all_samples.py # Run all official samples
+└── Official Samples:
+    ├── sample_01_coffee_maker.py # Coffee maker order
+    ├── sample_02_book_extraction.py # Pydantic extraction
+    ├── sample_03_parallel_books.py # Parallel processing
+    ├── sample_04_authentication.py # Authentication
+    ├── sample_05_sensitive_data.py # Sensitive data
+    ├── sample_06_file_operations.py # File operations
+    ├── sample_07_advanced_features.py # Advanced features
+    └── sample_08_interactive_mode.py # Interactive mode
 ```
 
-## 🎓 Learning Nova Act
+## Learning Nova Act
 
 ### Step 1: Understand Basics
 ```python
@@ -214,10 +214,10 @@ with NovaAct(starting_page="https://example.com") as nova:
 
 ### Step 2: Prescriptive Prompting
 ```python
-# ❌ DON'T - Too general
+# DON'T - Too general
 nova.act("Find my recent order and reorder it")
 
-# ✅ DO - Specific steps
+# DO - Specific steps
 nova.act("Click the hamburger menu icon")
 nova.act("Go to Order History")
 nova.act("Find my most recent order from India Palace and reorder it")
@@ -243,34 +243,34 @@ if result.matches_schema:
 # See official samples for detailed learning
 ```
 
-## 🌟 Key Features
+## Key Features
 
-### 🤖 **Core Features**
+### **Core Features**
 - **Prescriptive Prompting**: Break tasks into specific steps
 - **Schema-based Extraction**: Pydantic integration for structured data
 - **Error Handling**: Robust error management with ActError
 - **Session Management**: Persistent authentication and state
 
-### ⚡ **Advanced Features**
+### **Advanced Features**
 - **Parallel Processing**: Multiple browser instances with ThreadPoolExecutor
 - **File Operations**: Upload/download automation
 - **Interactive Mode**: Real-time control and debugging
 - **Production Ready**: Video recording, S3 integration, custom logging
 
-### 🛡️ **Security Features**
+### **Security Features**
 - **Sensitive Data Handling**: Safe password input with getpass
 - **CAPTCHA Support**: Manual CAPTCHA solving workflow
 - **Proxy Support**: Proxy configuration for network routing
 - **User Agent**: Custom user agent configuration
 
-## 📚 Documentation & Support
+## Documentation & Support
 
 - **Nova Act Official**: [GitHub](https://github.com/aws/nova-act)
 - **API Documentation**: [nova.amazon.com/act](https://nova.amazon.com/act)
 - **Blog Post**: [labs.amazon.science/blog/nova-act](https://labs.amazon.science/blog/nova-act)
 - **Issues**: [GitHub Issues](https://github.com/vanhoangkha/nova-act-samples/issues)
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork repository
 2. Create new branch (`git checkout -b feature/new-sample`)
@@ -278,18 +278,18 @@ if result.matches_schema:
 4. Push branch (`git push origin feature/new-sample`)
 5. Create Pull Request
 
-## ⚠️ Important Notes
+## Important Notes
 
-1. **⚠️** Nova Act may encounter prompt injections from third-party websites
-2. **🔒** Do not share your API key
-3. **🛡️** Do not provide sensitive information to Nova Act
-4. **👀** Monitor Nova Act and use according to Acceptable Use Policy
-5. **🤖** Look for `NovaAct` in user agent string to identify agent
+1. **** Nova Act may encounter prompt injections from third-party websites
+2. **** Do not share your API key
+3. **** Do not provide sensitive information to Nova Act
+4. **** Monitor Nova Act and use according to Acceptable Use Policy
+5. **** Look for `NovaAct` in user agent string to identify agent
 
 ---
 
-⭐ **Star this repository** if samples are helpful!
+**Star this repository** if samples are helpful!
 
-🔗 **Get API key**: [nova.amazon.com/act](https://nova.amazon.com/act)
+**Get API key**: [nova.amazon.com/act](https://nova.amazon.com/act)
 
-💡 **Start with**: `sample_01_coffee_maker.py` to understand how Nova Act works!
+**Start with**: `sample_01_coffee_maker.py` to understand how Nova Act works!
